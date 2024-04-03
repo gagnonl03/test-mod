@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "q q",
+    "qcq",
+    "ooo"
+  ],
+  "key": {
+    "q": {
+      "item": "minecraft:white_concrete"
+    },
+    "c": {
+      "item": "minecraft:cactus"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "tutorial:example_block",
+    "count": 12
+  }
+}

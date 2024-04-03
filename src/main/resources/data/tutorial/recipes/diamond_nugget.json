@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " D ",
+    "   "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "tutorial:diamond_nugget",
+    "count": 9
+  }
+}

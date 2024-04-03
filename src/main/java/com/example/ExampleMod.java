@@ -21,13 +21,19 @@ public class ExampleMod implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 	public static final Item CUSTOM_ITEM = new CustomItem(new FabricItemSettings().maxCount(16));
 	public static final Block CUSTOM_BLOCK = new ExampleBlock(FabricBlockSettings.create().strength(2.0f).pistonBehavior(PistonBehavior.DESTROY).requiresTool());
+	public static final Item IRON_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.IRON_APPLE));
+	public static final Item DIAMOND_NUGGET = new CustomItem(new FabricItemSettings());
+	public static final Item DIAMOND_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.DIAMOND_APPLE));
+	public static final Item EMERALD_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.EMERALD_APPLE));
+	public static final Item LAPIS_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.LAPIS_APPLE));
+	public static final Item COPPER_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.COPPER_APPLE));
+
 
 	//or (also remove register method from onInitialize
 	/*
 	public static final Item CUSTOM_ITEM = Registry.register(Registries.ITEM, new Identifier("tutorial",
 						"custom_item"), new Item(new FabricItemSettings()));
 	 */
-
 
 	@Override
 	public void onInitialize() {
@@ -37,7 +43,14 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "custom_item"), CUSTOM_ITEM);
 		Registry.register(Registries.BLOCK, new Identifier("tutorial", "example_block"), CUSTOM_BLOCK);
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(CUSTOM_BLOCK, new FabricItemSettings()));
-
-		LOGGER.info("Hello Fabric world!");
+		registerItem("diamond_nugget", DIAMOND_NUGGET);
+		registerItem("diamond_apple", DIAMOND_APPLE);
+		registerItem("iron_apple", IRON_APPLE);
+		registerItem("emerald_apple", EMERALD_APPLE);
+		registerItem("lapis_apple", LAPIS_APPLE);
+		registerItem("copper_apple", COPPER_APPLE);
+	}
+	private void registerItem(String name, Item item) {
+		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);
 	}
 }
