@@ -40,9 +40,8 @@ public class ExampleMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		Registry.register(Registries.ITEM, new Identifier("tutorial", "custom_item"), CUSTOM_ITEM);
-		Registry.register(Registries.BLOCK, new Identifier("tutorial", "example_block"), CUSTOM_BLOCK);
-		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(CUSTOM_BLOCK, new FabricItemSettings()));
+		registerBlock("example_block", CUSTOM_BLOCK);
+		registerItem("custom_item", CUSTOM_ITEM);
 		registerItem("diamond_nugget", DIAMOND_NUGGET);
 		registerItem("diamond_apple", DIAMOND_APPLE);
 		registerItem("iron_apple", IRON_APPLE);
@@ -52,5 +51,10 @@ public class ExampleMod implements ModInitializer {
 	}
 	private void registerItem(String name, Item item) {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);
+	}
+
+	private void registerBlock(String name, Block block) {
+		Registry.register(Registries.BLOCK, new Identifier("tutorial", name), block);
+		Registry.register(Registries.ITEM, new Identifier("tutorial", name), new BlockItem(block, new FabricItemSettings()));
 	}
 }
