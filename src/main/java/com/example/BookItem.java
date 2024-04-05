@@ -26,6 +26,6 @@ public class BookItem extends Item {
         }
         user.getMainHandStack().damage(1, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
 
-        return super.use(world, user, hand);
+        return TypedActionResult.success(user.getStackInHand(hand));
     }
 }
