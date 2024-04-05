@@ -3,6 +3,7 @@ package com.example;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -22,6 +23,12 @@ public class ExampleBlock extends Block {
         if(world.isClient) {
             player.sendMessage(Text.literal("lol"), false);
         }
+        ItemStack item = player.getMainHandStack();
+        if(item.isDamageable()) {
+            item.setRepairCost(0);
+            item.setDamage(0);
+        }
+        player.addExperienceLevels(20);
 
         return ActionResult.SUCCESS;
     }

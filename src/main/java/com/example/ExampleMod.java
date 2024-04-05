@@ -27,6 +27,7 @@ public class ExampleMod implements ModInitializer {
 	public static final Item EMERALD_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.EMERALD_APPLE));
 	public static final Item LAPIS_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.LAPIS_APPLE));
 	public static final Item COPPER_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.COPPER_APPLE));
+	public static final Item BOOK_ITEM = new BookItem(new FabricItemSettings().maxDamage(10));
 
 
 	//or (also remove register method from onInitialize
@@ -48,6 +49,7 @@ public class ExampleMod implements ModInitializer {
 		registerItem("emerald_apple", EMERALD_APPLE);
 		registerItem("lapis_apple", LAPIS_APPLE);
 		registerItem("copper_apple", COPPER_APPLE);
+		registerItem("book", BOOK_ITEM);
 	}
 	private void registerItem(String name, Item item) {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);

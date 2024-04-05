@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "IAI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:experience_bottle"
+    },
+    "A": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "tutorial:book",
+    "count": 1
+  }
+}
