@@ -1,8 +1,11 @@
 package com.example;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -18,6 +21,9 @@ public class XPCompressor extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        return ActionResult.FAIL;
+        int exp = player.experienceLevel;
+        ItemStack item = new BookItem(new FabricItemSettings()).getDefaultStack();
+        player.getInventory().offerOrDrop(item);
+        return ActionResult.SUCCESS;
     }
 }

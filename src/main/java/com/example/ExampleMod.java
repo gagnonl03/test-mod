@@ -21,13 +21,14 @@ public class ExampleMod implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 	public static final Item CUSTOM_ITEM = new CustomItem(new FabricItemSettings().maxCount(16));
 	public static final Block CUSTOM_BLOCK = new ExampleBlock(FabricBlockSettings.create().strength(2.0f).pistonBehavior(PistonBehavior.DESTROY).requiresTool());
+	public static final Block XP_BLOCK = new XPCompressor(FabricBlockSettings.create().pistonBehavior(PistonBehavior.DESTROY));
 	public static final Item IRON_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.IRON_APPLE));
 	public static final Item DIAMOND_NUGGET = new CustomItem(new FabricItemSettings());
 	public static final Item DIAMOND_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.DIAMOND_APPLE));
 	public static final Item EMERALD_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.EMERALD_APPLE));
 	public static final Item LAPIS_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.LAPIS_APPLE));
 	public static final Item COPPER_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.COPPER_APPLE));
-	public static final Item BOOK_ITEM = new BookItem(new FabricItemSettings().maxDamage(10));
+	public static final Item BOOK_ITEM = new BookItem(new FabricItemSettings().maxCount(32));
 
 
 	//or (also remove register method from onInitialize
@@ -42,6 +43,7 @@ public class ExampleMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		registerBlock("example_block", CUSTOM_BLOCK);
+		registerBlock("xp_compressor", XP_BLOCK);
 		registerItem("custom_item", CUSTOM_ITEM);
 		registerItem("diamond_nugget", DIAMOND_NUGGET);
 		registerItem("diamond_apple", DIAMOND_APPLE);

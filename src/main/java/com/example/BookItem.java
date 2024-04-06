@@ -16,16 +16,12 @@ public class BookItem extends Item {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
-        ItemStack item = user.getOffHandStack();
-        if(item.isDamageable() && item.getDamage() != 0) {
-            item.setDamage(0);
-        } else {
-            user.addExperienceLevels(5);
-        }
-        user.getMainHandStack().damage(1, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+        ItemStack stack = player.getMainHandStack();
+        player.addExperienceLevels(10);
+        stack.decrement(1);
 
-        return TypedActionResult.success(user.getStackInHand(hand));
+        return TypedActionResult.success(player.getStackInHand(hand));
     }
 }
