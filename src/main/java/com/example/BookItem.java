@@ -18,9 +18,12 @@ public class BookItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
+
         ItemStack stack = player.getMainHandStack();
         player.addExperienceLevels(10);
-        stack.decrement(1);
+        if(!player.getAbilities().creativeMode) {
+            stack.decrement(1);
+        }
 
         return TypedActionResult.success(player.getStackInHand(hand));
     }

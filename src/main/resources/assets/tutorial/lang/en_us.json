@@ -1,0 +1,10 @@
+{
+  "item.tutorial.book": "XP Book",
+  "item.tutorial.book.tooltip": "Gives 10 levels of XP when used",
+  "item.tutorial.xp_compressor": "XP Compressor",
+  "item.tutorial.iron_apple": "Iron Apple",
+  "item.tutorial.diamond_apple": "Diamond Apple",
+  "item.tutorial.emerald_apple": "Emerald Apple",
+  "item.tutorial.lapis_apple": "Lapis Apple",
+  "item.tutorial.copper_apple": "Copper Apple"
+}
