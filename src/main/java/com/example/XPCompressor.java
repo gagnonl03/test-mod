@@ -23,7 +23,6 @@ public class XPCompressor extends Block {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         int exp = player.experienceLevel;
         ItemStack item = new BookItem(new FabricItemSettings()).getDefaultStack();
-        player.getInventory().offerOrDrop(item);
         return ActionResult.SUCCESS;
     }
 }
