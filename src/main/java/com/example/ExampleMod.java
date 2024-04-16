@@ -4,7 +4,9 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -28,7 +30,19 @@ public class ExampleMod implements ModInitializer {
 	public static final Item EMERALD_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.EMERALD_APPLE));
 	public static final Item LAPIS_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.LAPIS_APPLE));
 	public static final Item COPPER_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.COPPER_APPLE));
+	public static final Item GLOWSTONE_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.GLOWSTONE_APPLE));
 	public static final Item BOOK_ITEM = new BookItem(new FabricItemSettings().maxCount(32));
+	public static final Block DEMO_BLOCK = new DemoBlock(FabricBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE));
+	public static final Item INFINITE_LAVA_BUCKET = new InfiniteLavaBucket(new FabricItemSettings().maxCount(1));
+	public static final BlockEntityType<DemoBlockEntity> DEMO_BLOCK_ENTITY = Registry.register(
+			Registries.BLOCK_ENTITY_TYPE,
+			new Identifier("tutorial", "demo_block_entity"),
+			FabricBlockEntityTypeBuilder.create(DemoBlockEntity::new, DEMO_BLOCK).build()
+	);
+
+	public static final Block INFINITE_LAVA_BLOCK = new InfiniteLavaBlock(FabricBlockSettings.create().pistonBehavior(PistonBehavior.BLOCK));
+	public static final Item INFINITE_WATER_BUCKET = new InfiniteWaterBucket(new FabricItemSettings().maxCount(1));
+	public static final Item HANDHELD_SPONGE = new HandheldSponge(new FabricItemSettings().maxCount(1));
 
 
 	//or (also remove register method from onInitialize
@@ -52,6 +66,12 @@ public class ExampleMod implements ModInitializer {
 		registerItem("lapis_apple", LAPIS_APPLE);
 		registerItem("copper_apple", COPPER_APPLE);
 		registerItem("book", BOOK_ITEM);
+		registerBlock("entity_block", DEMO_BLOCK);
+		registerBlock("infinite_lava_block", INFINITE_LAVA_BLOCK);
+		registerItem("glowstone_apple", GLOWSTONE_APPLE);
+		registerItem("infinite_lava_bucket", INFINITE_LAVA_BUCKET);
+		registerItem("infinite_water_bucket", INFINITE_WATER_BUCKET);
+		registerItem("handheld_sponge", HANDHELD_SPONGE);
 	}
 	private void registerItem(String name, Item item) {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);

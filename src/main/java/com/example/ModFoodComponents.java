@@ -38,6 +38,13 @@ public class ModFoodComponents {
             .alwaysEdible()
             .build();
 
+    public static final FoodComponent GLOWSTONE_APPLE = new FoodComponent.Builder().hunger(1)
+            .saturationModifier(1.0f)
+            .alwaysEdible()
+            .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 1000), 1.0f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 1000), 1.0f)
+            .build();
+
     public static final FoodComponent DULL_MELON = new FoodComponent.Builder().hunger(5)
             .saturationModifier(4.0f)
             .build();

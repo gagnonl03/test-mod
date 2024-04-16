@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "IAI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:netherite_block"
+    },
+    "A": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "result": {
+    "item": "tutorial:infinite_lava_block",
+    "count": 1
+  }
+}

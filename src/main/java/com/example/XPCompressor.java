@@ -7,6 +7,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -16,9 +18,11 @@ import net.minecraft.world.World;
 
 public class XPCompressor extends Block {
 
+    public static final IntProperty REMAINING = IntProperty.of("remaining", 0 ,10);
 
     public XPCompressor(Settings settings) {
         super(settings);
+        setDefaultState(getDefaultState().with(REMAINING, 10));
     }
 
     @Override
@@ -30,7 +34,17 @@ public class XPCompressor extends Block {
         } else {
             player.getInventory().offerOrDrop(item);
             player.experienceLevel -= 10;
+            if(world.getBlockState(pos).get(REMAINING) <= 1) {
+                world.breakBlock(pos, false);
+            } else {
+                world.setBlockState(pos, state.with(REMAINING, world.getBlockState(pos).get(REMAINING) - 1));
+            }
         }
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(REMAINING);
     }
 }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "IAI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "A": {
+      "item": "tutorial:infinite_lava_block"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "tutorial:infinite_lava_bucket",
+    "count": 1
+  }
+}
