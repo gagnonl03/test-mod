@@ -8,8 +8,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -74,6 +73,8 @@ public class ExampleMod implements ModInitializer {
 		registerItem("infinite_water_bucket", INFINITE_WATER_BUCKET);
 		registerItem("handheld_sponge", HANDHELD_SPONGE);
 		registerItem("super_absorbent_sponge", SUPER_ABSORBENT_SPONGE);
+		Items.register("ender_pearl", new EnderPearlItem(new Item.Settings().maxCount(64)));
+		Items.register("splash_potion", new SplashPotionItem(new Item.Settings().maxCount(32)));
 	}
 	private void registerItem(String name, Item item) {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);
