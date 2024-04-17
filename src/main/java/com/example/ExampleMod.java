@@ -73,8 +73,8 @@ public class ExampleMod implements ModInitializer {
 		registerItem("infinite_water_bucket", INFINITE_WATER_BUCKET);
 		registerItem("handheld_sponge", HANDHELD_SPONGE);
 		registerItem("super_absorbent_sponge", SUPER_ABSORBENT_SPONGE);
-		Items.register("ender_pearl", new EnderPearlItem(new Item.Settings().maxCount(64)));
-		Items.register("splash_potion", new SplashPotionItem(new Item.Settings().maxCount(32)));
+		//Items.register("ender_pearl", new EnderPearlItem(new Item.Settings().maxCount(64)));
+		//Items.register("splash_potion", new SplashPotionItem(new Item.Settings().maxCount(32)));
 	}
 	private void registerItem(String name, Item item) {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);

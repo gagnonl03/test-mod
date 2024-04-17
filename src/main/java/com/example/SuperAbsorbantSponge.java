@@ -22,6 +22,11 @@ public class SuperAbsorbantSponge extends Item {
     }
 
     @Override
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
+
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         BlockHitResult hitResult = Item.raycast(world, user, RaycastContext.FluidHandling.ANY);
         BlockPos core = hitResult.getBlockPos();

@@ -7,5 +7,9 @@
   "item.tutorial.emerald_apple": "Emerald Apple",
   "item.tutorial.lapis_apple": "Lapis Apple",
   "item.tutorial.copper_apple": "Copper Apple",
-  "item.tutorial.super_absorbent_sponge": "Super Absorbent Sponge"
+  "item.tutorial.super_absorbent_sponge": "Super Absorbent Sponge",
+  "item.tutorial.handheld_sponge": "Handheld Sponge",
+  "item.tutorial.infinite_lava_block": "Infinite Lava Block",
+  "item.tutorial.infinite_water_bucket": "Infinite Water Bucket",
+  "item.tutorial.infinite_lava_bucket": "Infinite Lava Bucket"
 }

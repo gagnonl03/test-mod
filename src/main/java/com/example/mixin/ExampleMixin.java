@@ -18,6 +18,7 @@ public class ExampleMixin {
 		// This code is injected into the start of MinecraftServer.loadWorld()V
 	}
 	*/
+	/*
 	@ModifyConstant(method = "<clinit>", constant = @Constant(stringValue = "ender_pearl"))
 	private static String injectEPInto(String test) {
 		return "old_ender_pearl";
@@ -27,6 +28,8 @@ public class ExampleMixin {
 	private static String injectSplashInto(String test) {
 		return "old_splash_potion";
 	}
+
+	 */
 
 
 }
