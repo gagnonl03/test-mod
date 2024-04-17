@@ -21,7 +21,7 @@ public class HandheldSponge extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        BlockHitResult hitResult = Item.raycast(world, user, RaycastContext.FluidHandling.ANY);
+        BlockHitResult hitResult = Item.raycast(world, user, RaycastContext.FluidHandling.SOURCE_ONLY);
         BlockPos pos1 = hitResult.getBlockPos();
         BlockState blockAt = world.getBlockState(pos1).getBlock().getDefaultState();
         if(blockAt.isOf(Blocks.WATER) || blockAt.isOf(Blocks.LAVA)) {

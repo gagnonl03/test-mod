@@ -4,6 +4,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -31,6 +33,7 @@ public class InfiniteLavaBucket extends Item {
         Direction pos2 = hitResult.getSide();
         BlockPos pos3 = pos1.offset(pos2);
         world.setBlockState(pos3, Blocks.LAVA.getDefaultState().getFluidState().getBlockState());
+        world.playSound(user, pos1, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0f, 1.0f);
         return TypedActionResult.success(user.getMainHandStack());
     }
 }
