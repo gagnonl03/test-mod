@@ -43,6 +43,7 @@ public class ExampleMod implements ModInitializer {
 	public static final Block INFINITE_LAVA_BLOCK = new InfiniteLavaBlock(FabricBlockSettings.create().pistonBehavior(PistonBehavior.BLOCK));
 	public static final Item INFINITE_WATER_BUCKET = new InfiniteWaterBucket(new FabricItemSettings().maxCount(1));
 	public static final Item HANDHELD_SPONGE = new HandheldSponge(new FabricItemSettings().maxCount(1));
+	public static final Item SUPER_ABSORBENT_SPONGE = new SuperAbsorbantSponge(new FabricItemSettings().maxCount(1));
 
 
 	//or (also remove register method from onInitialize
@@ -72,6 +73,7 @@ public class ExampleMod implements ModInitializer {
 		registerItem("infinite_lava_bucket", INFINITE_LAVA_BUCKET);
 		registerItem("infinite_water_bucket", INFINITE_WATER_BUCKET);
 		registerItem("handheld_sponge", HANDHELD_SPONGE);
+		registerItem("super_absorbent_sponge", SUPER_ABSORBENT_SPONGE);
 	}
 	private void registerItem(String name, Item item) {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);
