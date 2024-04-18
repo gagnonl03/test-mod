@@ -6,6 +6,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -26,6 +28,7 @@ public class HandheldSponge extends Item {
         BlockState blockAt = world.getBlockState(pos1).getBlock().getDefaultState();
         if(blockAt.isOf(Blocks.WATER) || blockAt.isOf(Blocks.LAVA)) {
             world.setBlockState(pos1, Blocks.AIR.getDefaultState());
+            world.playSound(user, pos1, SoundEvents.BLOCK_SPONGE_ABSORB, SoundCategory.BLOCKS, 1.0f, 1.0f);
         }
         return TypedActionResult.success(user.getMainHandStack());
     }

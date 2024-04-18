@@ -5,6 +5,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -25,6 +27,7 @@ public class InfiniteLavaBlock extends Block {
         ItemStack inHand = player.getStackInHand(hand);
         if(inHand.isOf(Items.BUCKET)) {
             player.getInventory().offerOrDrop(new ItemStack(Items.LAVA_BUCKET, 1));
+            world.playSound(player, pos, SoundEvents.ITEM_BUCKET_FILL_LAVA, SoundCategory.BLOCKS, 1.0f, 1.0f);
             inHand.decrement(1);
         }
         return ActionResult.CONSUME;

@@ -6,6 +6,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -39,6 +41,7 @@ public class SuperAbsorbantSponge extends Item {
                     world.setBlockState(pos, Blocks.AIR.getDefaultState());
                 }
             }
+            world.playSound(user, core, SoundEvents.BLOCK_SPONGE_ABSORB, SoundCategory.BLOCKS, 1.0f, 1.0f);
         }
         return TypedActionResult.success(user.getMainHandStack());
     }
