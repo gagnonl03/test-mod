@@ -27,6 +27,7 @@ public class XPCompressor extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        /*
         int exp = player.experienceLevel;
         ItemStack item = new ItemStack(ExampleMod.BOOK_ITEM, 1);
         if(exp < 10 && !player.getAbilities().creativeMode) {
@@ -40,6 +41,30 @@ public class XPCompressor extends Block {
                 world.setBlockState(pos, state.with(REMAINING, world.getBlockState(pos).get(REMAINING) - 1));
             }
         }
+
+         */
+        int exp = player.totalExperience;
+        ItemStack item;
+        if(exp == 0) {
+            player.sendMessage(Text.literal("You need XP to compress"), true);
+        } else {
+            if(exp < 160) {
+                item = new ItemStack(ExampleMod.EXTRA_XP_BOOK_ITEM, 1);
+                item.setDamage(160 - exp);
+                player.addExperience(-player.totalExperience);
+                player.addExperienceLevels(-player.experienceLevel);
+            } else {
+                item = new ItemStack(ExampleMod.BOOK_ITEM, 1);
+                player.totalExperience -= 160;
+            }
+            player.getInventory().offerOrDrop(item);
+            if(world.getBlockState(pos).get(REMAINING) <= 1) {
+                world.breakBlock(pos, false);
+            } else {
+                world.setBlockState(pos, state.with(REMAINING, world.getBlockState(pos).get(REMAINING) - 1));
+            }
+        }
+
         return ActionResult.SUCCESS;
     }
 

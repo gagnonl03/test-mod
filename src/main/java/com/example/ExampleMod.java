@@ -33,6 +33,7 @@ public class ExampleMod implements ModInitializer {
 	public static final Item BOOK_ITEM = new BookItem(new FabricItemSettings().maxCount(32));
 	public static final Block DEMO_BLOCK = new DemoBlock(FabricBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE));
 	public static final Item INFINITE_LAVA_BUCKET = new InfiniteLavaBucket(new FabricItemSettings().maxCount(1));
+	public static final Item EXTRA_XP_BOOK_ITEM = new ExtraXPBookItem(new FabricItemSettings().maxDamage(160));
 	public static final BlockEntityType<DemoBlockEntity> DEMO_BLOCK_ENTITY = Registry.register(
 			Registries.BLOCK_ENTITY_TYPE,
 			new Identifier("tutorial", "demo_block_entity"),
@@ -43,6 +44,7 @@ public class ExampleMod implements ModInitializer {
 	public static final Item INFINITE_WATER_BUCKET = new InfiniteWaterBucket(new FabricItemSettings().maxCount(1));
 	public static final Item HANDHELD_SPONGE = new HandheldSponge(new FabricItemSettings().maxCount(1));
 	public static final Item SUPER_ABSORBENT_SPONGE = new SuperAbsorbantSponge(new FabricItemSettings().maxCount(1));
+	public static final Block FLUSH_XP_BLOCK = new FlushXPBlock(FabricBlockSettings.create());
 
 
 	//or (also remove register method from onInitialize
@@ -73,6 +75,8 @@ public class ExampleMod implements ModInitializer {
 		registerItem("infinite_water_bucket", INFINITE_WATER_BUCKET);
 		registerItem("handheld_sponge", HANDHELD_SPONGE);
 		registerItem("super_absorbent_sponge", SUPER_ABSORBENT_SPONGE);
+		registerItem("extra_xp_book_item", EXTRA_XP_BOOK_ITEM);
+		registerBlock("flush_xp", FLUSH_XP_BLOCK);
 		//Items.register("ender_pearl", new EnderPearlItem(new Item.Settings().maxCount(64)));
 		//Items.register("splash_potion", new SplashPotionItem(new Item.Settings().maxCount(32)));
 	}
