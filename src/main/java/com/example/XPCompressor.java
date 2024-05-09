@@ -55,6 +55,7 @@ public class XPCompressor extends Block {
                 player.addExperienceLevels(-player.experienceLevel);
             } else {
                 item = new ItemStack(ExampleMod.BOOK_ITEM, 1);
+                player.addExperience(-160);
                 player.totalExperience -= 160;
             }
             player.getInventory().offerOrDrop(item);

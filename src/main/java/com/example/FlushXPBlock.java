@@ -19,6 +19,7 @@ public class FlushXPBlock extends Block {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 
         player.totalExperience = 0;
+        player.experienceLevel = 0;
         return ActionResult.SUCCESS;
     }
 }
