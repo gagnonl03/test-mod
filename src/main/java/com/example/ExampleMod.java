@@ -21,7 +21,6 @@ public class ExampleMod implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
     public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 	public static final Item CUSTOM_ITEM = new CustomItem(new FabricItemSettings().maxCount(16));
-	public static final Block CUSTOM_BLOCK = new ExampleBlock(FabricBlockSettings.create().strength(2.0f).pistonBehavior(PistonBehavior.DESTROY).requiresTool());
 	public static final Block XP_BLOCK = new XPCompressor(FabricBlockSettings.create().pistonBehavior(PistonBehavior.DESTROY));
 	public static final Item IRON_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.IRON_APPLE));
 	public static final Item DIAMOND_NUGGET = new CustomItem(new FabricItemSettings());
@@ -32,6 +31,7 @@ public class ExampleMod implements ModInitializer {
 	public static final Item GLOWSTONE_APPLE = new Item(new FabricItemSettings().food(ModFoodComponents.GLOWSTONE_APPLE));
 	public static final Item BOOK_ITEM = new BookItem(new FabricItemSettings().maxCount(32));
 	public static final Block DEMO_BLOCK = new DemoBlock(FabricBlockSettings.create().pistonBehavior(PistonBehavior.IGNORE));
+	public static final Block REPAIRER_BLOCK = new RepairerBlock(FabricBlockSettings.create());
 	public static final Item INFINITE_LAVA_BUCKET = new InfiniteLavaBucket(new FabricItemSettings().maxCount(1));
 	public static final Item EXTRA_XP_BOOK_ITEM = new ExtraXPBookItem(new FabricItemSettings().maxDamage(160));
 	public static final BlockEntityType<DemoBlockEntity> DEMO_BLOCK_ENTITY = Registry.register(
@@ -58,7 +58,6 @@ public class ExampleMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		registerBlock("example_block", CUSTOM_BLOCK);
 		registerBlock("xp_compressor", XP_BLOCK);
 		registerItem("custom_item", CUSTOM_ITEM);
 		registerItem("diamond_nugget", DIAMOND_NUGGET);
@@ -77,8 +76,7 @@ public class ExampleMod implements ModInitializer {
 		registerItem("super_absorbent_sponge", SUPER_ABSORBENT_SPONGE);
 		registerItem("extra_xp_book_item", EXTRA_XP_BOOK_ITEM);
 		registerBlock("flush_xp", FLUSH_XP_BLOCK);
-		//Items.register("ender_pearl", new EnderPearlItem(new Item.Settings().maxCount(64)));
-		//Items.register("splash_potion", new SplashPotionItem(new Item.Settings().maxCount(32)));
+		registerBlock("repairer_block", REPAIRER_BLOCK);
 	}
 	private void registerItem(String name, Item item) {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", name), item);
