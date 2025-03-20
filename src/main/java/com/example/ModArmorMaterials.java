@@ -40,16 +40,16 @@ public enum ModArmorMaterials implements StringIdentifiable, ArmorMaterial {
         this.equipSound = equipSound;
         this.toughness = toughness;
         this.knockbackResistance = knockbackResistance;
-        this.repairIngredientSupplier = new Lazy<Ingredient>(repairIngredientSupplier);
+        this.repairIngredientSupplier = new Lazy(repairIngredientSupplier);
     }
     @Override
     public int getDurability(ArmorItem.Type type) {
-        return (int)BASE_DURABILITY.get((Object) type) * this.durabilityMultiplier;
+        return BASE_DURABILITY.get(type) * this.durabilityMultiplier;
     }
 
     @Override
     public int getProtection(ArmorItem.Type type) {
-        return this.protectionAmounts.get((Object)type);
+        return this.protectionAmounts.get(type);
     }
 
     @Override
@@ -82,16 +82,13 @@ public enum ModArmorMaterials implements StringIdentifiable, ArmorMaterial {
         return this.knockbackResistance;
     }
 
-    private static final EnumMap BASE_DURABILITY;
-
-    static {
-        BASE_DURABILITY = Util.make(new EnumMap(ArmorItem.Type.class), map -> {
+    private static final EnumMap<ArmorItem.Type, Integer> BASE_DURABILITY =
+        Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
             map.put(ArmorItem.Type.BOOTS, 13);
             map.put(ArmorItem.Type.LEGGINGS, 15);
             map.put(ArmorItem.Type.CHESTPLATE, 16);
             map.put(ArmorItem.Type.HELMET, 11);
-        });
-    }
+    });
 
     @Override
     public String asString() {
