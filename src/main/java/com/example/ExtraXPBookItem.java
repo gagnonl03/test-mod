@@ -16,7 +16,7 @@ public class ExtraXPBookItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
         ItemStack stack = player.getMainHandStack();
-        player.addExperience(stack.getMaxDamage() - stack.getDamage());
+        player.addExperience(160);
         stack.decrement(1);
 
         return TypedActionResult.success(player.getStackInHand(hand));

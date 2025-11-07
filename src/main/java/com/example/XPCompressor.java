@@ -45,6 +45,18 @@ public class XPCompressor extends Block {
          */
         int exp = player.totalExperience;
         ItemStack item;
+        if(exp < 160) {
+            player.sendMessage(Text.literal("You need at least 160 XP to compress"), true);
+        } else {
+            item = new ItemStack(ExampleMod.EXTRA_XP_BOOK_ITEM, 1);
+            player.giveItemStack(item);
+            player.totalExperience -= 160;
+        }
+
+
+        /*
+        int exp = player.totalExperience;
+        ItemStack item;
         if(exp == 0) {
             player.sendMessage(Text.literal("You need XP to compress"), true);
         } else {
@@ -65,6 +77,8 @@ public class XPCompressor extends Block {
                 world.setBlockState(pos, state.with(REMAINING, world.getBlockState(pos).get(REMAINING) - 1));
             }
         }
+
+         */
 
         return ActionResult.SUCCESS;
     }
